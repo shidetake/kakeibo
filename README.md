@@ -1,41 +1,39 @@
-# Ruby on Rails チュートリアルのサンプルアプリケーション
+# Kakeibo
 
-これは、次の教材で作られたサンプルアプリケーションです。   
-[*Ruby on Rails チュートリアル*](https://railstutorial.jp/)
-[Michael Hartl](http://www.michaelhartl.com/) 著
-
-## ライセンス
-
-[Ruby on Rails チュートリアル](https://railstutorial.jp/)内にある
-ソースコードはMITライセンスとBeerwareライセンスのもとで公開されています。
-詳細は [LICENSE.md](LICENSE.md) をご覧ください。
+個人用家計簿
 
 ## 使い方
 
-このアプリケーションを動かす場合は、まずはリポジトリを手元にクローンしてください。
-その後、次のコマンドで必要になる RubyGems をインストールします。
+MySQLが起動していること。
+Homebrewを使ってインストールしている場合は、以下のコマンドで自動起動設定してしまうのが良い。
+```bash
+$ brew services start mysql
+```
 
 ```
-$ bundle install --without production
+$ bundle install
+```
+
+もしmysql2のインストールがうまくいかない場合は以下のコマンドを実行してから再度`bundle install`する。
+
+```bash
+$ bundle config --local build.mysql2 "--with-ldflags=-L/opt/homebrew/Cellar/zstd/1.5.0/lib" "--with-opt-dir=/opt/homebrew/opt/openssl"
+```
+
+MySQLのユーザ名とパスワードを環境変数に設定
+
+```bash
+$ echo export RAILS_DATABASE_USER=root >> ~/.zshrc
+$ echo export RAILS_DATABASE_PASSWORD=password >> ~/.zshrc
 ```
 
 その後、データベースへのマイグレーションを実行します。
 
 ```
-$ rails db:migrate
+$ bundle exec rails db:create
+$ bundle exec rails db:migrate
 ```
 
-最後に、テストを実行してうまく動いているかどうか確認してください。
-
 ```
-$ rails test
+$ bundle exec rails server
 ```
-
-テストが無事に通ったら、Railsサーバーを立ち上げる準備が整っているはずです。
-
-```
-$ rails server
-```
-
-詳しくは、[*Ruby on Rails チュートリアル*](https://railstutorial.jp/)
-を参考にしてください。
