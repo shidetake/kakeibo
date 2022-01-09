@@ -18,6 +18,7 @@ gem 'ransack'
 gem 'sass-rails',                      '~> 5.0.6'
 gem 'turbolinks',                      '5.0.1'
 gem 'uglifier',                        '3.2.0'
+gem "webpacker"
 gem 'will_paginate'
 
 group :development, :test do
