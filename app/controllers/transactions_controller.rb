@@ -19,7 +19,7 @@ class TransactionsController < ApplicationController
 
     params[:transaction][:store_id] = get_or_create_store_id(params[:transaction][:store_name])
 
-    flash[:success] = 'Transaction updated' if transaction.update_attributes(transaction_params)
+    flash[:success] = 'Transaction updated' if transaction.update(transaction_params)
     redirect_to request.referer
   end
 
