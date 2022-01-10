@@ -48,7 +48,6 @@ class AnalysisController < ApplicationController
     income = {}
     bike = {}
     pet = {}
-    investing = {}
     gamble = {}
     (1..12).each do |m|
       meal[m.to_s]          = -@user.transactions.with_category.valid.not_nae.source(source).month(year, m).parent_id(  769342).total
@@ -69,7 +68,6 @@ class AnalysisController < ApplicationController
       income[m.to_s]        =  @user.transactions.with_category.valid.not_nae.source(source).month(year, m).parent_id(13123188).total
       bike[m.to_s]          = -@user.transactions.with_category.valid.not_nae.source(source).month(year, m).parent_id(24927167).total
       pet[m.to_s]           = -@user.transactions.with_category.valid.not_nae.source(source).month(year, m).parent_id(24927661).total
-      investing[m.to_s]     = -@user.transactions.with_category.valid.not_nae.source(source).month(year, m).parent_id(25117604).total
       gamble[m.to_s]        = -@user.transactions.with_category.valid.not_nae.source(source).month(year, m).parent_id(25118133).total
     end
     sum_category << { name: '食費',         data: meal          }
@@ -89,7 +87,6 @@ class AnalysisController < ApplicationController
     sum_category << { name: 'IT',           data: information   }
     sum_category << { name: 'バイク',       data: bike          }
     sum_category << { name: 'ペット',       data: pet           }
-    sum_category << { name: '投資・財テク', data: investing     }
     sum_category << { name: 'ギャンブル',   data: gamble        }
 
     sum_category_yearly << { name: '食費',         data: { '支出' => meal.values.inject(:+) } }
@@ -109,7 +106,6 @@ class AnalysisController < ApplicationController
     sum_category_yearly << { name: 'IT',           data: { '支出' => information.values.inject(:+) } }
     sum_category_yearly << { name: 'バイク',       data: { '支出' => bike.values.inject(:+) } }
     sum_category_yearly << { name: 'ペット',       data: { '支出' => pet.values.inject(:+) } }
-    sum_category_yearly << { name: '投資・財テク', data: { '支出' => investing.values.inject(:+) } }
     sum_category_yearly << { name: 'ギャンブル',   data: { '支出' => gamble.values.inject(:+) } }
     sum_category_yearly << { name: '収入',         data: { '収入' => income.values.inject(:+) } }
 
