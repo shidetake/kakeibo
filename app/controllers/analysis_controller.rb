@@ -181,7 +181,7 @@ class AnalysisController < ApplicationController
     sum_entertainment << { name: 'おもちゃ',     data: toy     }
     sum_entertainment << { name: 'カメラ',       data: camera  }
     sum_entertainment << { name: '旅行',         data: travel  }
-    sum_entertainment << { name: '風俗',         data: night   }
+    sum_entertainment << { name: 'その他',       data: night   }
     sum_entertainment << { name: 'ダーツ',       data: darts   }
 
     sum_entertainment_yearly << { name: 'レジャー',     data: { '支出' => leisure.values.inject(:+) } }
@@ -199,7 +199,7 @@ class AnalysisController < ApplicationController
     sum_entertainment_yearly << { name: 'おもちゃ',     data: { '支出' => toy.values.inject(:+) } }
     sum_entertainment_yearly << { name: 'カメラ',       data: { '支出' => camera.values.inject(:+) } }
     sum_entertainment_yearly << { name: '旅行',         data: { '支出' => travel.values.inject(:+) } }
-    sum_entertainment_yearly << { name: '風俗',         data: { '支出' => night.values.inject(:+) } }
+    sum_entertainment_yearly << { name: 'その他',       data: { '支出' => night.values.inject(:+) } }
     sum_entertainment_yearly << { name: 'ダーツ',       data: { '支出' => darts.values.inject(:+) } }
 
     [sum_entertainment, sum_entertainment_yearly]
