@@ -9,22 +9,22 @@
     <h2><%= params['year'] %>年</h2>
 
     <h3>全体</h3>
-    <%= column_chart @sum_category_yearly, stacked: true, width: '300px', height: '1000px' %>
+    <%= column_chart @sum_category_yearly, stacked: true, width: '300px', height: '800px' %>
     支出合計: <%= @sum_yearly %>円
-    <%= column_chart @sum_category, stacked: true, height: '1000px' %>
+    <%= column_chart @sum_category, stacked: true, height: '800px' %>
     <%= column_chart @sum_energy, stacked: false, colors: ["yellow", "blue", "red"] %>
     光熱費合計: <%= @sum_yearly_energy %>円 / 平均: <%= @sum_yearly_energy / 12 %>円/月
-    <%= column_chart @sum_entertainment_yearly, stacked: true, width: '300px', height: '1000px' %>
-    <%= column_chart @sum_group, stacked: true, height: '1000px' %>
+    <%= column_chart @sum_entertainment_yearly, stacked: true, width: '300px', height: '800px' %>
+    <%= column_chart @sum_group, stacked: true, height: '800px' %>
 
     <h3>セントラル</h3>
-    <%= column_chart @sum_category_yearly_central, stacked: true, width: '300px', height: '1000px' %>
+    <%= column_chart @sum_category_yearly_central, stacked: true, width: '300px', height: '800px' %>
     支出合計: <%= @sum_yearly_central %>円
-    <%= column_chart @sum_category_central, stacked: true, height: '1000px' %>
+    <%= column_chart @sum_category_central, stacked: true, height: '800px' %>
 
     <h3>個人</h3>
-    <%= column_chart @sum_category_yearly_hide, stacked: true, width: '300px', height: '1000px' %>
+    <%= column_chart @sum_category_yearly_hide, stacked: true, width: '300px', height: '800px' %>
     支出合計: <%= @sum_yearly_hide %>円
-    <%= column_chart @sum_category_hide, stacked: true, height: '1000px' %>
+    <%= column_chart @sum_category_hide, stacked: true, height: '800px' %>
   </div>
 </div>
